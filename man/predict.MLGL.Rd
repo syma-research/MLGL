@@ -23,6 +23,16 @@ A matrix with fitted values or estimated coefficients for given values of s.
 \description{
 Predict fitted values from a \code{\link{MLGL}} object
 }
+\examples{
+X <- simuBlockGaussian(n = 50, nBlock = 12, sizeBlock = 5, rho = 0.7)
+y <- drop(X[, c(2, 7, 12)] \%*\% c(2, 2, -1)) + rnorm(50, 0, 0.5)
+
+m1 <- MLGL(X, y, loss = "ls")
+predict(m1, newx = X)
+predict(m1, s=3, newx = X)
+predict(m1, s=1:3, newx = X)
+
+}
 \seealso{
 \link{MLGL}
 }
