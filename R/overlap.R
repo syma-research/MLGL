@@ -188,7 +188,7 @@ overlapgglasso <- function(X, y, var, group, lambda = NULL, weight = NULL, loss 
     if (!is.numeric(weight)) {
       stop("weight must be a vector of positive real.")
     }
-    if (length(weight) != sum(!duplicated(weight))) {
+    if (length(weight) != sum(!duplicated(group))) {
       stop("weight must have the same length as the number of differents groups.")
     }
     if (any(weight < 0)) {
